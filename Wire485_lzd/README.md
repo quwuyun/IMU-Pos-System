@@ -1,0 +1,5 @@
+# HumanPoseIMU
+```
+python process.py
+```
+
