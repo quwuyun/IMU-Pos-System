@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="hy_hit" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="pi@192.168.10.70:22 password" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="hy@192.168.43.113:22 password">
@@ -28,6 +28,20 @@
         <serverdata>
           <mappings>
             <mapping deploy="/home/pi/Desktop/IMU-Pos_System" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="pi@192.168.3.88:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/pi/Desktop/IMU-Pos_System" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="pi_mkh">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/pi/Desktop/IMU-Pos_System" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -1,5 +1,7 @@
 """
 LPMS-B2蓝牙IMU解算人体下肢关节姿态(linux系统)
+v1.1
+新增连不上的重连函数，适配器连接速度较慢，容易出现初始断联的情况
 """
 
 import serial
@@ -9,7 +11,7 @@ import zmq
 import csv
 import numpy as np
 import mujoco       # pip install mujoco==2.3.7    pip install mujoco-python-viewer
-from mujoco_viewer.mujoco_viewer import *
+# from mujoco_viewer.mujoco_viewer import *
 from scipy.spatial.transform import Rotation
 import linuxfd,signal,select
 
@@ -38,7 +40,7 @@ def quaternion_to_matrix(quaternion):
 
 def matrix_to_quaternion(rotation_matrix):
     r = Rotation.from_matrix(rotation_matrix)
-    quaternion = r.as_quat(canonical=False)
+    quaternion = r.as_quat()
     return quaternion
 
 
@@ -149,34 +151,58 @@ class imu_posture:
             print(f"解析异常: {e} | payload长度: {len(payload_bytes)}")
         return data
 
+    def _reopen(self, imu_idx, delay=1.0):
+        port = self.ports[imu_idx]
+        try:
+            old = self.ser_list[imu_idx]
+            try:
+                old.close()
+            except:
+                pass
+            time.sleep(delay)
+            ser = serial.Serial(port, self.baudrate, timeout=0.01)
+            ser.reset_input_buffer()
+            self.ser_list[imu_idx] = ser
+            self.buf_list[imu_idx] = b""
+            print(f"[IMU{imu_idx}] 重新连接成功 {port}")
+        except Exception as e:
+            print(f"[IMU{imu_idx}] 重新连接失败 {port}: {e}")
+
     def read_imu_data(self):
         """读取所有IMU数据，返回格式对齐485版本的字典"""
         for imu_idx in range(self.imu_num):
             ser = self.ser_list[imu_idx]
             buf = self.buf_list[imu_idx]
 
-            if ser.in_waiting > 0:
-                chunk = ser.read(ser.in_waiting)
-                buf += chunk
-                # 提取完整帧
-                frames, buf = self.extract_frames(buf)
-                self.buf_list[imu_idx] = buf  # 更新缓存
+            try:
+                n = ser.in_waiting
+                if n > 0:
+                    chunk = ser.read(ser.in_waiting)
+                    buf += chunk
+                    # 提取完整帧
+                    frames, buf = self.extract_frames(buf)
+                    self.buf_list[imu_idx] = buf  # 更新缓存
 
-                # 解析最新数据帧
-                if frames:
-                    latest_frame = frames[-1]  # 最后一帧是缓存中最新数据帧
-                    data_len = int.from_bytes(latest_frame[5:7], 'little')
-                    payload = latest_frame[7:7 + data_len]
-                    parsed_data = self.parse_lpms_payload(payload)
+                    # 解析最新数据帧
+                    if frames:
+                        latest_frame = frames[-1]  # 最后一帧是缓存中最新数据帧
+                        data_len = int.from_bytes(latest_frame[5:7], 'little')
+                        payload = latest_frame[7:7 + data_len]
+                        parsed_data = self.parse_lpms_payload(payload)
 
-                    # 更新数据
-                    if all(key in parsed_data for key in ["gyro", "quat"]):
-                        # q = list(parsed_data["quat"])  # 四元数
-                        q = parsed_data["quat"]
-                        q = [q[1], q[2], q[3], q[0]]  # (x,y,z,w)
-                        g = list(parsed_data["gyro"])  # 角速度
-                        self.imu_data_dict[imu_idx] = [q, g]
+                        # 更新数据
+                        if all(key in parsed_data for key in ["gyro", "quat"]):
+                            # q = list(parsed_data["quat"])  # 四元数
+                            q = parsed_data["quat"]
+                            q = [q[1], q[2], q[3], q[0]]  # (x,y,z,w)
+                            g = list(parsed_data["gyro"])  # 角速度
+                            self.imu_data_dict[imu_idx] = [q, g]
         # print(self.imu_data_dict)
+            except (OSError, serial.SerialException) as e:
+                print(f"[IMU{imu_idx}] 串口异常: {e} ({self.ports[imu_idx]})，尝试重连...")
+                self._reopen(imu_idx)
+                self.count -= 1
+                continue
 
         # 计数和帧率打印
         self.count += 1

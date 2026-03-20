@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40129941-da53-43c0-9638-b44630c1ca52" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/IMU-Pos_System.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lpms_exo/windows/.idea/windows.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpms_exo/doc/lpms人体姿态检测.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lpms_exo/doc/lpms人体姿态检测.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpms_exo/lpms_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lpms_exo/lpms_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpms_exo/process_pi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lpms_exo/process_pi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpms_exo/windows/walking_sub.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lpms_exo/windows/walking_sub.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +36,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "quwuyun"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;quwuyun&quot;
   }
-}]]></component>
+}</component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -40,12 +50,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/quwuyun/IMU-Pos-System.git",
-    "accountId": "02f289b5-f971-47bc-be72-5c34c0e2e835"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/quwuyun/IMU-Pos-System.git&quot;,
+    &quot;accountId&quot;: &quot;02f289b5-f971-47bc-be72-5c34c0e2e835&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -67,8 +77,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/TechUser/Desktop/IMU-Pos_System",
+    "last_opened_file_path": "D:/HY/IMU-Pos_System/Lpms_exo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,6 +89,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\HY\IMU-Pos_System\Lpms_exo" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.process_pc">
     <configuration name="lpms_reader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="imu_bluetooth" />
@@ -238,7 +254,12 @@
       <workItem from="1772640177922" duration="94000" />
       <workItem from="1772714348505" duration="8554000" />
       <workItem from="1772775185699" duration="41436000" />
-      <workItem from="1772975313898" duration="271000" />
+      <workItem from="1772975313898" duration="779000" />
+      <workItem from="1773043845570" duration="32000" />
+      <workItem from="1773043919515" duration="12000" />
+      <workItem from="1773043950149" duration="26000" />
+      <workItem from="1773656620017" duration="21558000" />
+      <workItem from="1773911034294" duration="18582000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -256,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772975542299</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1772975596562</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1772975596562</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
