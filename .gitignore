@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Linux temp
+*~
+*.swp
+
+# Data / recordings (按需保留或删掉)
+*.csv
+*.bag
+*.npy
+*.npz
+
+# Secrets (按需)
+*.key
+*.pem
+*.env

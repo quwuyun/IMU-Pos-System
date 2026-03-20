@@ -78,7 +78,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "fix-v1.1",
     "last_opened_file_path": "D:/HY/IMU-Pos_System/Lpms_exo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -259,7 +259,7 @@
       <workItem from="1773043919515" duration="12000" />
       <workItem from="1773043950149" duration="26000" />
       <workItem from="1773656620017" duration="21558000" />
-      <workItem from="1773911034294" duration="18582000" />
+      <workItem from="1773911034294" duration="18886000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
