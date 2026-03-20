@@ -25,6 +25,7 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+*./iml
 
 # Linux temp
 *~
