@@ -197,7 +197,7 @@ class imu_posture:
                             q = [q[1], q[2], q[3], q[0]]  # (x,y,z,w)
                             g = list(parsed_data["gyro"])  # 角速度
                             self.imu_data_dict[imu_idx] = [q, g]
-        # print(self.imu_data_dict)
+                 # print(self.imu_data_dict)
             except (OSError, serial.SerialException) as e:
                 print(f"[IMU{imu_idx}] 串口异常: {e} ({self.ports[imu_idx]})，尝试重连...")
                 self._reopen(imu_idx)
