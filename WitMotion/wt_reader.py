@@ -36,7 +36,6 @@ class WTMultiIMU:
 
         # 数值结构：idx -> [quat_xyzw, gyro_xyz]
         self.imu_data_dict = {i: [[0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0]] for i in range(self.imu_num)}
-
         self.devices = [None] * self.imu_num  # DeviceModel list
 
     def on_numeric(self, imu_idx, q_xyzw, g_xyz):

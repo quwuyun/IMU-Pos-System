@@ -70,7 +70,7 @@ class DeviceModel:
     async def openDevice(self):
         print("Opening device......")
         # 获取设备的服务和特征 Obtain the services and characteristic of the device
-        async with bleak.BleakClient(self.BLEDevice, timeout=15) as client:
+        async with bleak.BleakClient(self.BLEDevice, timeout=10) as client:
             self.client = client
             self.isOpen = True
             # 设备UUID常量 Device UUID constant
