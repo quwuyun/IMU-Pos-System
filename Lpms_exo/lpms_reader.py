@@ -27,7 +27,7 @@ import time
 
 print("test")
 
-port = '/dev/rfcomm4'
+port = '/dev/rfcomm5'
 # port = 'COM14'
 baud = 115200
 

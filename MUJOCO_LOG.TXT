@@ -1,0 +1,3 @@
+Thu Jun  4 19:07:09 2026
+WARNING: mju_openResource: unknown file './model/new/walk_new_quat_body0901.xml'
+

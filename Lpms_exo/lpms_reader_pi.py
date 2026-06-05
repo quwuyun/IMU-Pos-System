@@ -2,8 +2,8 @@ import serial
 import time
 import struct
 
-# port = '/dev/rfcomm1'
-port = 'COM14'
+port = '/dev/rfcomm0'
+# port = 'COM14'
 baud = 921600
 
 
