@@ -1,0 +1,39 @@
+<mujoco model="box">
+    <!-- <include file="../common/skybox.xml"/>
+    <include file="../common/visual.xml"/>
+    <include file="../common/materials.xml"/> -->
+    <!--compiler
+    inertiafromgeom="auto" angle="radian" balanceinertia="true" boundmass="0.001"
+    boundinertia="0.001"></compiler-->
+    <!-- <option timestep="0.001" >
+        <flag contact="disable"/>
+    </option> -->
+    <visual>
+        <headlight ambient=".4 .4 .4" diffuse=".5 .5 .5" specular="0.1 0.1 0.1"/>
+        <map znear=".01"/>
+        <quality shadowsize="2048"/>
+      </visual>
+    <asset>
+        <texture
+            name="plane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="512"
+            height="512" mark="cross" markrgb=".8 .8 .8" />
+
+        <material name="plane" reflectance="0.3"
+            texture="plane" texrepeat="1 1" texuniform="true" />
+    </asset>
+    <size njmax="500" nconmax="100" nuserdata="1" />
+    <worldbody>
+        <!-- <light name="light" pos="0 0 6"/> -->
+        <geom name="floor" size="0 0 .05" type="plane" rgba="1 1 1 1" material="plane" condim="3" />
+        <!-- <light name="spotlight" mode="targetbodycom" target="ikdummy" diffuse=".8 .8 .8"
+            specular="0.3 0.3 0.3" pos="0 -6 4" cutoff="30" /> -->
+        <body name="ikdummy" mocap="true" pos="0 0 2">
+            <!-- <light mode="trackcom" directional="true" diffuse=".5 .5 .5" specular="0.3 0.3 0.3"
+                pos="0 0 4.0" dir="0 0 -1" /> -->
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="1.0 1.0 0.0 1.0" size="0.5 1 0.1"
+                type="box"></geom>
+        </body>
+        <!-- <geom name="floor" pos="0 0 0" size="10 10 0.125" material='grid' type="plane"
+        condim="3"></geom> -->
+    </worldbody>
+</mujoco>

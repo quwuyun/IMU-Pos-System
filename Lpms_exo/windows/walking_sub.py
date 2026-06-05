@@ -23,7 +23,8 @@ class walking_sub:
 
         context = zmq.Context()
         subscriber = context.socket(zmq.SUB)
-        subscriber.connect("tcp://192.168.43.107:5555")
+        # subscriber.connect("tcp://192.168.43.107:5555")
+        subscriber.connect("tcp://192.168.10.70:5555")
         subscriber.setsockopt(zmq.SUBSCRIBE, b'')
         self.sub = subscriber
 
@@ -46,10 +47,8 @@ class walking_sub:
 
     def recvProc(self):
         while self.viewer.is_alive:
-            qposcontents, position_dict, posture_dict = self.sub.recv_multipart()
+            qposcontents, = self.sub.recv_multipart()
             self.data.qpos = np.frombuffer(qposcontents, np.float64)
-            self.position_dict = np.frombuffer(position_dict, np.float64)
-            self.posture_dict = np.frombuffer(posture_dict, np.float64)
 
             self.output.append(np.frombuffer(qposcontents, np.float64))
 
