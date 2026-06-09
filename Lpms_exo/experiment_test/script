@@ -1,0 +1,3 @@
+
+cd Lpms_exo/experiment_test/
+~/miniconda3/envs/hy/bin/python process_pi_epoll.py

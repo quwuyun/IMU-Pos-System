@@ -1,5 +1,5 @@
 """
-连不上三步操作：
+树莓派连接方法：
 
 1.查找使用的蓝牙设备，并清空BlueZ数据库
 
@@ -19,6 +19,30 @@ discoverable on
 pair <MAC>  # 必须出现pair的密钥请求yes or no的选项，选择yes则成功配对
 trust <MAC>
 connect <MAC>  # 没连上不影响
+
+
+ubuntu连接方法：
+
+1.查找使用的蓝牙设备，并清空BlueZ数据库
+sudo rfkill unblock bluetooth
+sudo systemctl restart bluetooth
+
+2.关闭ssp，采用legacy PIN 配对方式
+sudo btmgmt power off
+sudo btmgmt ssp off
+sudo btmgmt power on
+
+3.重新配对（不要scan on）
+bluetoothctl
+agent KeyboardOnly
+default-agent
+scan bredr
+pair <MAC>
+此时弹出[agent] Enter PIN code:，输入1234
+trust <MAC>
+connect <MAC>  # 没连上不影响
+
+最后sudo btmgmt ssp on 恢复ssp
 """
 
 import serial
